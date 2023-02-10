@@ -132,6 +132,35 @@ deploydocs(;
 )
 ```
 
+### やっていること
+
+- `using DemoCards` を追記した.
+- `makedemos` 関数を呼び出す. 引数の `"myexamples"` は `docs/` を起点としたデモを格納した相対パスである.
+
+```julia
+myexamples, myexamples_cb, myexamples_assets = makedemos("myexamples")
+```
+
+- `assets` 変数を定義する. デモカードのサムネ画像に関する情報を渡すために使われる
+
+```julia
+assets = collect(filter(x->!isnothing(x), Set([myexamples_assets])))
+```
+
+- `makedocs` 関数のキーワード引数 `format` に渡す値を下記のようにする. 先ほど定義した `assets` を Documenter.HTML の assets 引数に渡すだけである.
+
+```
+    format=Documenter.HTML(;
+        prettyurls=get(ENV, "CI", "false") == "true",
+        canonical="https://<YourGitHubAccount>.github.io/MojiMoji.jl",
+        edit_link="main",
+        assets=assets,
+    ),
+```
+
+`myexamples_cb()` を呼ぶ. これは `makedemos` 関数の２番めの戻り値で得たコールバック関数を実行している. DemoCards.jl を利用するためのお作法だと思えば良い. `makedocs` の後に実行する.
+
+## 動作確認
 
 `julia --project=docs/ docs/make.jl` を実行する. 読者が私の MojiMoji.jl を見ている場合は `make web` とすればコンテナ環境でサーバーを立てて `http://0.0.0.0:8000/myexamples/index.html` にアクセスすると Demos というページが生成されているはずだ.
 
