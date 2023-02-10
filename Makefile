@@ -5,7 +5,7 @@ DOCKER_IMAGE=mojimojijl
 all: build
 
 build:
-	-rm -f Manifest.toml docs/Manifest.toml
+	-rm -f Manifest.toml
 	docker build -t ${DOCKER_IMAGE} . --build-arg NB_UID=`id -u`
 	docker-compose build
 	docker-compose run --rm shell julia --project=@. -e 'using Pkg; Pkg.instantiate()'
