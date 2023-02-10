@@ -1,0 +1,27 @@
+version: '3'
+services:
+  julia:
+    image: mojimojijl
+    container_name: mojimojijl-julia
+    volumes:
+      - ./:/workspace/MojiMoji.jl
+    working_dir: /workspace/MojiMoji.jl
+    command: julia --project=/workspace/MojiMoji.jl
+
+  shell:
+    image: mojimojijl
+    container_name: mojimojijl-julia
+    volumes:
+      - ./:/workspace/MojiMoji.jl
+    working_dir: /workspace/MojiMoji.jl
+    command: /bin/bash
+
+  web:
+    image: mojimojijl
+    container_name: mojimojijl-packagedocs
+    volumes:
+      - ./:/workspace/MojiMoji.jl
+    working_dir: /workspace/MojiMoji.jl
+    ports:
+      - "8000:8000"
+    command: make web
