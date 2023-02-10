@@ -2,7 +2,7 @@
 
 # 概要
 
-DemoCards.jl を使うためのサンプルパッケージ. MojiMoji モジュールが特段何かをするわけではない.
+[DemoCards.jl](https://github.com/JuliaDocs/DemoCards.jl) を使うサンプルパッケージ. MojiMoji モジュールが特段何かをするわけではない. 響きが可愛いでしょ？
 
 # Usage
 

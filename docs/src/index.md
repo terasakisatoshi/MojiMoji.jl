@@ -10,7 +10,10 @@ Documentation for [MojiMoji](https://github.com/terasakisatoshi/MojiMoji.jl).
 
 # MojiMoji.jl とは
 
-[DemoCards.jl](https://github.com/JuliaDocs/DemoCards.jl) と呼ばれるデモ作成を支援するパッケージを使ったサンプルパッケージである．
+[DemoCards.jl](https://github.com/JuliaDocs/DemoCards.jl) と呼ばれるデモ作成を支援するパッケージを使ったサンプルパッケージである．例えば可視化ライブラリの使い方を表示するためのデモページとして使える.
+
+- [Bokeh.jl](https://cjdoris.github.io/Bokeh.jl/dev/gallery/)
+- [Plots.jl](https://docs.juliaplots.org/stable/user_gallery/)
 
 # Why MojiMoji
 
