@@ -35,3 +35,13 @@ $ cd MojiMoji.jl
 $ make
 $ docker-compose up web
 ```
+
+下記のような出力を得たら `http://0.0.0.0:8000/` にアクセスする.
+
+```
+mojimojijl-packagedocs  | [ Info: Listening on: 0.0.0.0:8000, thread id: 1
+mojimojijl-packagedocs  | ✓ LiveServer listening on http://0.0.0.0:8000/ ...
+mojimojijl-packagedocs  |   (use CTRL+C to shut down)
+
+```
+
