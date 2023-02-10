@@ -1,7 +1,11 @@
 using MojiMoji
+using DemoCards
 using Documenter
 
 DocMeta.setdocmeta!(MojiMoji, :DocTestSetup, :(using MojiMoji); recursive=true)
+
+myexamples, myexamples_cb, myexamples_assets = makedemos("myexamples")
+assets = collect(filter(x->!isnothing(x), Set([myexamples_assets])))
 
 makedocs(;
     modules=[MojiMoji],
@@ -12,12 +16,15 @@ makedocs(;
         prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://terasakisatoshi.github.io/MojiMoji.jl",
         edit_link="main",
-        assets=String[],
+        assets=assets,
     ),
     pages=[
         "Home" => "index.md",
+        myexamples,
     ],
 )
+
+myexamples_cb()
 
 deploydocs(;
     repo="github.com/terasakisatoshi/MojiMoji.jl",
